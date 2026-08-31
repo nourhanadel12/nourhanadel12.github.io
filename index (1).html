@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nourhan Adel — AI Automation & Agent Systems</title>
+<meta name="description" content="I build end-to-end AI systems that turn repetitive work into automated, reliable processes. AI Agents, workflow automation, and machine learning for startups and small businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EF;
+    --paper-alt:#EFEBE2;
+    --ink:#1B1D22;
+    --ink-soft:#5B5C63;
+    --line:#DEDAD0;
+    --signal:#2451D6;
+    --signal-soft:#EAEFFC;
+    --amber:#D98B3D;
+    --amber-soft:#FBF0E2;
+    --radius:2px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .rail{
+    position:relative;
+    padding-left:34px;
+  }
+  .rail::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:6px;
+    bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .rail-dot{
+    position:absolute;
+    left:-4px;
+    top:6px;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--signal);
+  }
+
+  /* NAV */
+  header.top{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,244,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+    max-width:1040px;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    text-decoration:none;
+  }
+  .logo span{color:var(--signal);}
+  .navlinks{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:0.92rem;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    transition:color .15s;
+  }
+  .navlinks a:hover{color:var(--ink);}
+  .navcta{
+    font-size:0.9rem;
+    background:var(--ink);
+    color:var(--paper);
+    padding:9px 16px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .navtoggle{display:none;}
+  @media (max-width:760px){
+    .navlinks{display:none;}
+    .navtoggle{display:block;background:none;border:1px solid var(--line);padding:8px 12px;border-radius:var(--radius);font-family:'Inter';}
+  }
+
+  /* HERO */
+  section.hero{
+    max-width:1040px;
+    margin:0 auto;
+    padding:72px 28px 64px;
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  @media (max-width:820px){
+    section.hero{grid-template-columns:1fr;padding-top:48px;}
+  }
+  .eyebrow-plain{
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  h1.headline{
+    font-size:2.6rem;
+    line-height:1.14;
+    margin:0 0 20px;
+    max-width:15ch;
+  }
+  @media (max-width:600px){ h1.headline{font-size:2rem;} }
+  .sub{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0 0 30px;
+  }
+  .heroctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+  }
+  .btn.primary{background:var(--signal);color:#fff;}
+  .btn.primary:hover{background:#1c3fb0;}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--ink);}
+  .heropanel{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    padding:26px;
+    border-radius:var(--radius);
+    font-size:0.92rem;
+  }
+  .heropanel .row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .heropanel .row:last-child{border-bottom:none;}
+  .heropanel .label{color:var(--ink-soft);}
+
+  /* SECTION shell */
+  section{
+    max-width:1040px;
+    margin:0 auto;
+    padding:64px 28px;
+  }
+  section + section{border-top:1px solid var(--line);}
+  h2.sectitle{
+    font-size:1.7rem;
+    margin:0 0 34px;
+  }
+  .lead{
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:-20px 0 34px;
+  }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:22px;
+    margin-top:36px;
+  }
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .pillar{padding-left:34px;position:relative;}
+  .pillar::before{
+    content:"";
+    position:absolute;left:0;top:5px;
+    width:16px;height:1px;background:var(--signal);
+  }
+  .pillar h3{font-size:1.02rem;margin:0 0 8px;}
+  .pillar p{color:var(--ink-soft);font-size:0.94rem;margin:0;}
+
+  /* HOW I WORK - the signature flow */
+  .flow{
+    position:relative;
+    margin-top:8px;
+  }
+  .flowstep{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:24px;
+    padding:22px 0;
+    position:relative;
+  }
+  .flowstep + .flowstep{border-top:1px dashed var(--line);}
+  .flowlabel{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--signal);
+  }
+  .flowlabel small{
+    display:block;
+    font-family:'Inter';
+    font-weight:400;
+    color:var(--ink-soft);
+    font-size:0.8rem;
+    margin-top:3px;
+  }
+  .flowbody p{margin:0;color:var(--ink-soft);font-size:0.96rem;}
+  @media (max-width:600px){
+    .flowstep{grid-template-columns:1fr;gap:6px;}
+  }
+
+  /* SERVICES */
+  .services{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:8px;
+  }
+  @media (max-width:700px){ .services{grid-template-columns:1fr;} }
+  .service{
+    background:var(--paper);
+    padding:28px;
+  }
+  .service h3{font-size:1.05rem;margin:0 0 10px;}
+  .service p{color:var(--ink-soft);font-size:0.93rem;margin:0;}
+
+  /* SKILLS */
+  .skillgrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px 40px;
+    margin-top:8px;
+  }
+  @media (max-width:700px){ .skillgrid{grid-template-columns:1fr;} }
+  .skillcat h3{
+    font-size:0.98rem;
+    margin:0 0 6px;
+  }
+  .skillcat p{
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    margin:0;
+  }
+
+  /* PROJECTS */
+  .project{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px;
+    margin-bottom:22px;
+    background:var(--paper-alt);
+  }
+  .project.featured{background:var(--signal-soft);border-color:#c4d1f5;}
+  .project h3{font-size:1.2rem;margin:0 0 4px;}
+  .project .tag{
+    display:inline-block;
+    font-size:0.76rem;
+    color:var(--signal);
+    background:#fff;
+    border:1px solid #c4d1f5;
+    padding:3px 9px;
+    border-radius:20px;
+    margin-bottom:14px;
+  }
+  .project .tag.proposed{color:var(--amber);border-color:#f0d3ab;}
+  .pmeta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px 28px;
+    margin-top:16px;
+  }
+  @media (max-width:640px){ .pmeta{grid-template-columns:1fr;} }
+  .pmeta .k{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .pmeta .v{font-size:0.93rem;}
+  .stack{margin-top:16px;font-size:0.86rem;color:var(--ink-soft);}
+  .stack b{color:var(--ink);font-weight:500;}
+
+  /* CREDENTIALS strip */
+  .credstrip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:8px;
+  }
+  .credpill{
+    font-size:0.85rem;
+    border:1px solid var(--line);
+    padding:8px 14px;
+    border-radius:20px;
+    color:var(--ink-soft);
+  }
+
+  /* CTA */
+  section.cta{
+    text-align:left;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:var(--radius);
+    max-width:1040px;
+    margin:64px auto;
+    padding:56px 40px;
+  }
+  section.cta h2{color:var(--paper);font-size:1.9rem;margin:0 0 14px;max-width:20ch;}
+  section.cta p{color:#B9BAC2;max-width:52ch;margin:0 0 28px;font-size:1rem;}
+  section.cta .btn.primary{background:var(--amber);color:#231607;}
+  section.cta .btn.primary:hover{background:#c67a2e;}
+  section.cta .btn.ghost{border-color:#454650;color:var(--paper);}
+
+  footer{
+    max-width:1040px;
+    margin:0 auto;
+    padding:36px 28px 60px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  footer a{text-decoration:none;color:var(--ink-soft);}
+  footer a:hover{color:var(--ink);}
+
+  ::selection{background:var(--signal);color:#fff;}
+  :focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="wrap">
+    <a href="#top" class="logo">Nourhan<span>.</span></a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#how">How I Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:nourhan.adel.eg@gmail.com" class="navcta">Book a call</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div>
+    <p class="eyebrow-plain">AI Automation & Agent Systems · Cairo, Egypt</p>
+    <h1 class="headline">I build end-to-end AI systems that turn repetitive work into automated, reliable processes.</h1>
+    <p class="sub">I work with startups, small businesses, and individuals who are stuck doing things manually. I diagnose the actual problem first, then build the right fix — an AI Agent, an automated workflow, or a custom model — and take it all the way to deployment.</p>
+    <div class="heroctas">
+      <a href="#projects" class="btn primary">See how I work</a>
+      <a href="mailto:nourhan.adel.eg@gmail.com" class="btn ghost">Start a project</a>
+    </div>
+  </div>
+  <div class="heropanel">
+    <div class="row"><span class="label">Focus</span><span>AI Agents & Automation</span></div>
+    <div class="row"><span class="label">Also builds</span><span>Custom ML & CV systems</span></div>
+    <div class="row"><span class="label">Best fit for</span><span>Startups & small businesses</span></div>
+    <div class="row"><span class="label">Approach</span><span>Problem → Deployed system</span></div>
+    <div class="row"><span class="label">Availability</span><span>Open to new projects</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">About</h2>
+    <p style="max-width:64ch;color:var(--ink-soft);margin-top:-16px;">
+      Most AI portfolios start with the technology. I start with the problem. My job is to figure out what's actually slowing a business down, then build the right fix — sometimes that's an AI Agent that handles conversations or decisions on its own, sometimes it's an automated workflow connecting the tools already in use, and sometimes it's a custom machine learning model trained on specific data.
+    </p>
+    <p style="max-width:64ch;color:var(--ink-soft);">
+      I don't lock into one method, because the problem shouldn't have to fit a fixed toolkit. I understand the problem, design the solution, build it end-to-end, and integrate it into how the business already works — so it gets used, not just demoed.
+    </p>
+    <div class="about-grid">
+      <div class="pillar">
+        <h3>AI Agents</h3>
+        <p>Conversational and task-based agents that handle real interactions, not scripted demos.</p>
+      </div>
+      <div class="pillar">
+        <h3>Automation</h3>
+        <p>Workflows that connect the tools a business already uses, removing manual handoffs.</p>
+      </div>
+      <div class="pillar">
+        <h3>Machine Learning</h3>
+        <p>Custom models when the problem genuinely calls for pattern detection or classification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">How I work</h2>
+    <p class="lead">A consistent method for turning a manual, repetitive problem into a deployed system — regardless of which technology ends up solving it.</p>
+    <div class="flow">
+      <div class="flowstep">
+        <div class="flowlabel">Problem<small>Understand</small></div>
+        <div class="flowbody"><p>Talk through what's actually slow, repetitive, or error-prone — before proposing any tool.</p></div>
+      </div>
+      <div class="flowstep">
+        <div class="flowlabel">Design<small>Plan</small></div>
+        <div class="flowbody"><p>Decide what the problem actually needs: an agent, an automated workflow, a model, or a mix.</p></div>
+      </div>
+      <div class="flowstep">
+        <div class="flowlabel">AI / Agent<small>Build</small></div>
+        <div class="flowbody"><p>Build the AI component — the model, the agent's logic, or the reasoning layer.</p></div>
+      </div>
+      <div class="flowstep">
+        <div class="flowlabel">Automation<small>Connect</small></div>
+        <div class="flowbody"><p>Wire the AI component into a workflow that runs on its own, with no manual triggering.</p></div>
+      </div>
+      <div class="flowstep">
+        <div class="flowlabel">Integration<small>Fit</small></div>
+        <div class="flowbody"><p>Plug the system into the tools already in use — email, calendars, CRMs, spreadsheets, phones.</p></div>
+      </div>
+      <div class="flowstep">
+        <div class="flowlabel">Deployment<small>Ship</small></div>
+        <div class="flowbody"><p>Get it running in production, not left as a notebook or a one-off demo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">Services</h2>
+    <p class="lead">Outcomes I build toward, not a list of technologies.</p>
+    <div class="services">
+      <div class="service">
+        <h3>AI-powered workflow automation</h3>
+        <p>Turn multi-step manual processes — data entry, follow-ups, reporting — into workflows that run without you touching them.</p>
+      </div>
+      <div class="service">
+        <h3>Customized AI Agents</h3>
+        <p>Agents built around one specific task — handling calls, answering repetitive questions, qualifying leads — fit to your process.</p>
+      </div>
+      <div class="service">
+        <h3>Business process automation</h3>
+        <p>Connect the tools you already use so information moves between them automatically, with fewer manual handoffs and errors.</p>
+      </div>
+      <div class="service">
+        <h3>End-to-end AI solutions</h3>
+        <p>Full-cycle builds from problem diagnosis to deployment — a working system, not a proof-of-concept that stops at a demo.</p>
+      </div>
+      <div class="service">
+        <h3>Machine learning solutions</h3>
+        <p>When a problem genuinely needs a trained model — detecting patterns or classifying data from your own dataset.</p>
+      </div>
+      <div class="service">
+        <h3>AI integrations & optimization</h3>
+        <p>Connect AI capabilities into existing systems via APIs, and refine workflows that exist but aren't running efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">Skills</h2>
+    <div class="skillgrid">
+      <div class="skillcat">
+        <h3>Designing & building AI Agents</h3>
+        <p>Conversational and task-based agents, prompt engineering, decision logic design</p>
+      </div>
+      <div class="skillcat">
+        <h3>Automating workflows</h3>
+        <p>n8n, API integrations, connecting tools and platforms into one automated process</p>
+      </div>
+      <div class="skillcat">
+        <h3>Computer vision systems</h3>
+        <p>Object detection & tracking, video analytics, image classification</p>
+      </div>
+      <div class="skillcat">
+        <h3>Machine learning & deep learning</h3>
+        <p>Predictive models, NLP, model training and evaluation, Python-based pipelines</p>
+      </div>
+      <div class="skillcat">
+        <h3>Cloud & MLOps</h3>
+        <p>Azure AI, MLflow, Hugging Face — deploying and tracking models reliably</p>
+      </div>
+      <div class="skillcat">
+        <h3>End-to-end delivery</h3>
+        <p>Problem scoping, solution design, build, integration, deployment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">Selected projects</h2>
+
+    <div class="project featured">
+      <span class="tag">Featured</span>
+      <h3>AI Voice Agent for Automated Patient Follow-Up</h3>
+      <p style="color:var(--ink-soft);margin:0;">A physical therapy practice needed to re-engage inactive patients without staff manually calling each one. An AI voice agent now places outbound calls, holds a natural multilingual conversation, and logs structured outcomes automatically.</p>
+      <div class="pmeta">
+        <div><div class="k">Where AI is used</div><div class="v">Conversational agent handles the live call — understanding responses, answering from a knowledge base, adapting across English, Spanish, and Arabic</div></div>
+        <div><div class="k">Automation / workflow</div><div class="v">Call triggering, post-call data extraction, and logging run end-to-end with no manual note-taking</div></div>
+        <div><div class="k">Business value</div><div class="v">Frees staff from repetitive outreach and ensures no follow-up is missed, with a consistent record of every call</div></div>
+        <div><div class="k">Stack</div><div class="v">RetellAI, Twilio, n8n, RAG knowledge base</div></div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="tag">Case study</span>
+      <h3>Smart Retail Video Analytics System</h3>
+      <p style="color:var(--ink-soft);margin:0;">Retail businesses often lack visibility into how customers move through a store. This pipeline turns raw camera footage into operational data — dwell time, queue length, and movement heatmaps — without manual observation.</p>
+      <div class="pmeta">
+        <div><div class="k">Where AI is used</div><div class="v">Object detection and multi-object tracking assign persistent IDs to customers across frames</div></div>
+        <div><div class="k">Automation / workflow</div><div class="v">Processed data feeds directly into an interactive dashboard in place of spreadsheet tracking</div></div>
+        <div><div class="k">Business value</div><div class="v">Gives managers a data-backed view of congestion points and staffing needs</div></div>
+        <div><div class="k">Stack</div><div class="v">YOLO, BoT-SORT, OpenCV, Streamlit / Gradio</div></div>
+      </div>
+      <a href="https://github.com/nourhanadel12/smart-retail-Analytics_NTI_project" target="_blank" style="display:inline-block;margin-top:16px;font-size:0.88rem;color:var(--signal);text-decoration:none;">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <span class="tag">Case study</span>
+      <h3>Weather Data ETL Pipeline</h3>
+      <p style="color:var(--ink-soft);margin:0;">An end-to-end automated pipeline that pulls weather data from an external API and moves it through ingestion, orchestration, and storage without manual handling at any stage — the same automation backbone used in client-facing workflow projects.</p>
+      <div class="pmeta">
+        <div><div class="k">Where automation is used</div><div class="v">Airflow orchestrates scheduled runs; Airbyte and NiFi handle ingestion and routing between stages</div></div>
+        <div><div class="k">Automation / workflow</div><div class="v">Data flows automatically from the Open-Meteo API into a structured MySQL database on a set schedule</div></div>
+        <div><div class="k">Business value</div><div class="v">Demonstrates the same orchestration pattern used to keep client workflows running without manual triggering</div></div>
+        <div><div class="k">Stack</div><div class="v">Python, Apache Airflow, Airbyte, NiFi, MySQL</div></div>
+      </div>
+      <a href="https://github.com/nourhanadel12/weather-etl-pipeline" target="_blank" style="display:inline-block;margin-top:16px;font-size:0.88rem;color:var(--signal);text-decoration:none;">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <span class="tag proposed">In progress</span>
+      <h3>Inbox-to-Action Agent for Small Business Requests</h3>
+      <p style="color:var(--ink-soft);margin:0;">Small businesses receive bookings, invoices, and complaints across email and messaging apps, and sorting them manually delays responses. This agent classifies each message's intent and triggers the right action automatically.</p>
+      <div class="pmeta">
+        <div><div class="k">Where AI is used</div><div class="v">An LLM-based agent interprets intent — booking, complaint, invoice question — and decides the next action</div></div>
+        <div><div class="k">Automation / workflow</div><div class="v">A triggered workflow drafts an invoice, logs the request, or schedules a call with no manual handling</div></div>
+        <div><div class="k">Business value</div><div class="v">Cuts response time and removes a recurring manual sorting task</div></div>
+        <div><div class="k">Stack</div><div class="v">LLM / prompt engineering, n8n, API integrations</div></div>
+      </div>
+    </div>
+
+    <p style="color:var(--ink-soft);font-size:0.92rem;margin-top:30px;">
+      More projects — including machine learning and computer vision work — on
+      <a href="https://github.com/nourhanadel12" target="_blank" style="color:var(--signal);text-decoration:none;">GitHub</a>.
+    </p>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="rail">
+    <div class="rail-dot"></div>
+    <h2 class="sectitle">Credentials</h2>
+    <div class="credstrip">
+      <span class="credpill">Microsoft Machine Learning Engineer — DEPI</span>
+      <span class="credpill">NTI — Deep Learning & Computer Vision</span>
+      <span class="credpill">MCIT Professional Training</span>
+      <span class="credpill">NVIDIA Generative AI (ITI)</span>
+      <span class="credpill">IBM — Generative AI & LLMs (Coursera)</span>
+      <span class="credpill">AI Science, Cairo University</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Have a repetitive process you'd like turned into a working system?</h2>
+  <p>Tell me the problem — I'll tell you the right way to solve it, whether that's an AI Agent, an automated workflow, or something built from scratch.</p>
+  <div class="heroctas">
+    <a href="mailto:nourhan.adel.eg@gmail.com" class="btn primary">Book a free 20-min call</a>
+    <a href="mailto:nourhan.adel.eg@gmail.com" class="btn ghost">Email me</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Nourhan Adel</span>
+  <span>
+    <a href="mailto:nourhan.adel.eg@gmail.com">Email</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/nourhan-adel-353a43361" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://github.com/nourhanadel12" target="_blank">GitHub</a>
+  </span>
+</footer>
+
+</body>
+</html>
